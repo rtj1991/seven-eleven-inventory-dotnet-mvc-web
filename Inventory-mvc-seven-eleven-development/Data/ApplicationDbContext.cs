@@ -6,6 +6,7 @@ namespace Inventory_mvc_seven_eleven.Data;
 
 public class ApplicationDbContext : IdentityDbContext<User>
 {
+    public ApplicationDbContext() { }
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
     {

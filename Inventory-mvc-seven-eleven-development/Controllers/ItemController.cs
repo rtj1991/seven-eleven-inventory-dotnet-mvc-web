@@ -29,6 +29,7 @@ namespace Inventory_mvc_seven_eleven.Controllers
                            join u in _context.Users on i.Created_by equals u.Id into st2
                            from u in st2.DefaultIfEmpty()
                            select new ItemView { item = i, user = u };
+            // Item itemView = _context.Items.FirstOrDefault();
             return View(itemView);
         }
 
