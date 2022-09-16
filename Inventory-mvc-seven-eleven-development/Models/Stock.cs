@@ -1,7 +1,5 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text.Json.Serialization;
-
 namespace Inventory_mvc_seven_eleven.Models
 {
     public partial class Stock
@@ -9,6 +7,22 @@ namespace Inventory_mvc_seven_eleven.Models
         public Stock()
         {
             CreatedDate = DateTime.UtcNow;
+        }
+
+        public Stock(int _id,string _description,double _quantity ,int _status,bool _stockAvailable, DateTime _createdDate,DateTime _expireDate,int _itemCode,int _locationId, string _createdBy,string _modifiedBy)
+        {
+            this.Id = _id;
+            this.Description = _description;
+            this.Quantity = _quantity;
+            this.Status = _status;
+            this.StockAvailable = _stockAvailable;
+            this.CreatedDate = _createdDate;
+            this.ExpireDate = _expireDate;
+            this.Item_code = _itemCode;
+            this.Location_id = _locationId;
+            this.Created_by = _createdBy;
+            this.Modified_by = _modifiedBy;
+
         }
 
         [Key]

@@ -1,6 +1,5 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text.Json.Serialization;
 
 namespace Inventory_mvc_seven_eleven.Models
 {
@@ -10,6 +9,17 @@ namespace Inventory_mvc_seven_eleven.Models
         {
             CreatedDate = DateTime.UtcNow;
         }
+
+        public Location(int _id, string _name, string _description, int _status, DateTime _createdDate, string _createdBy)
+        {
+            Id = _id;
+            Name = _name;
+            Description = _description;
+            Status = _status;
+            CreatedDate = _createdDate;
+            Created_by = _createdBy;
+        }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
@@ -20,7 +30,6 @@ namespace Inventory_mvc_seven_eleven.Models
 
         [ForeignKey("Created_by")]
         public string? Created_by { get; set; }
-
     }
 
 }

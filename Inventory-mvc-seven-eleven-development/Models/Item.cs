@@ -5,29 +5,19 @@ namespace Inventory_mvc_seven_eleven.Models
 {
     public partial class Item
     {
-        private int v1;
-        private string v2;
-        private string v3;
-        private double v4;
-        private int v5;
-        private object utcNow;
-        private string v6;
-        private object value;
-
         public Item(){
             CreatedDate=DateTime.UtcNow;
         }
 
-        public Item(int v1, string v2, string v3, double v4, int v5, object utcNow, string v6, object value)
+        public Item(int _id, string _name, string _description, double _price, int _status, DateTime _createdDate, string _createdBy)
         {
-            this.v1 = v1;
-            this.v2 = v2;
-            this.v3 = v3;
-            this.v4 = v4;
-            this.v5 = v5;
-            this.utcNow = utcNow;
-            this.v6 = v6;
-            this.value = value;
+            this.Id = _id;
+            this.Name = _name;
+            this.Description = _description;
+            this.Price = _price;
+            this.Status = _status;
+            this.CreatedDate = _createdDate;
+            this.Created_by = _createdBy;
         }
 
         [Key]

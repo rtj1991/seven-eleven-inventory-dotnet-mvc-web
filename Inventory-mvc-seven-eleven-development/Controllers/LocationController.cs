@@ -22,7 +22,7 @@ namespace Inventory_mvc_seven_eleven.Controllers
         }
 
         // GET: Location
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             _logger.LogInformation("Redirect To The Location Main Page");
             var itemView = from l in _context.Locations

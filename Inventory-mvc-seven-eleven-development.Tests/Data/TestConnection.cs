@@ -5,9 +5,9 @@ using Microsoft.Extensions.Configuration;
 namespace Inventory_mvc_seven_eleven_development.Tests;
 public class TestConnection
 {
-    private ApplicationDbContext? _context;
+    public ApplicationDbContext? _context;
     public IConfigurationRoot? Configuration { get; set; }
-    public ApplicationDbContext getConnectionString()
+    public virtual ApplicationDbContext getConnectionString()
     {
 
         var builder = new ConfigurationBuilder()
@@ -15,8 +15,8 @@ public class TestConnection
         Configuration = builder.Build();
 
         var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
-        optionsBuilder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
-        _context= new ApplicationDbContext(optionsBuilder.Options);
+        optionsBuilder.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"));
+        _context = new ApplicationDbContext(optionsBuilder.Options);
 
         return _context;
     }
