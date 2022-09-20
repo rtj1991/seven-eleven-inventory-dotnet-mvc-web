@@ -1,0 +1,83 @@
+@model IEnumerable<SevenEleven.Inventory.Mvc.Models.StockAdjustment>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Item_code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Created_by)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modified_by)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stock_Id)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Item_code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Created_by)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modified_by)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stock_Id)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

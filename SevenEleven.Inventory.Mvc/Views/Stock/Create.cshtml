@@ -1,0 +1,67 @@
+@using SevenEleven.Inventory.Mvc.Dao
+@model LocationStockModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Stock</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Stocks.Description" class="control-label"></label>
+                <input name="Description" class="form-control" />
+                <span asp-validation-for="Stocks.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Stocks.Quantity" class="control-label"></label>
+                <input name="Quantity" class="form-control" />
+                <span asp-validation-for="Stocks.Quantity" class="text-danger"></span>
+            </div>
+           
+            
+            <div class="form-group">
+                <label asp-for="Stocks.ExpireDate" class="control-label"></label>
+                <input asp-for="Stocks.ExpireDate" name="ExpireDate" class="form-control" />
+                <span asp-validation-for="Stocks.ExpireDate" class="text-danger"></span>
+            </div>
+                        
+            <div class="form-group">
+            <label class="control-label">Item</label>
+                <select class="form-select" name="Item_code">
+                    <option selected>-----select item-----</option>
+                    @foreach (var Item in Model.Items) {
+                        <option value ="@Item.Id" >@Item.Name</option>
+                    } 
+                </select>
+            </div>
+
+            <div class="form-group">
+            <label class="control-label">Location</label>
+                <select class="form-select" name="Location_id">
+                    <option selected>-----select item-----</option>
+                    @foreach (var Location in Model.Locations) {
+                        <option value ="@Location.Id" >@Location.Name</option>
+                    } 
+                </select>
+            </div>
+           
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
